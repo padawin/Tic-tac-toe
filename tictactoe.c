@@ -18,7 +18,7 @@ Grid layout:
 int _play(int c, int *player, int board);
 void display(int p1, int p2);
 
-int winpatterns[8] = {
+int winpatterns[] = {
 	0b000000111,
 	0b000111000,
 	0b111000000,
@@ -93,9 +93,9 @@ int _play(int c, int *player, int board)
 		return NO_WINNER;
 
 	int i;
-	for (i = 0; i < 8 && (winpatterns[i] & *player) != winpatterns[i]; i++);
+	for (i = 0; i < sizeof(winpatterns)/sizeof(int) && (winpatterns[i] & *player) != winpatterns[i]; i++);
 
-	if (i < 8)
+	if (i < sizeof(winpatterns)/sizeof(int))
 		return WINNING_PLAY;
 
 	return CONTINUE;
