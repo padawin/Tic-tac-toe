@@ -48,6 +48,7 @@ int main()
 
 		c = c - '0';
 		result = _play(c, turn, *turn | *other);
+		display(p1, p2);
 
 		if (result == UNKNOWN_VALUE || result == ALREADY_USED_CASE)
 			continue;
@@ -61,9 +62,6 @@ int main()
 		tmp = turn;
 		turn = other;
 		other = tmp;
-
-		display(p1, p2);
-
 	} while (winner == NULL && (c >= '0' || c <= '8'));
 
 	if (*winner == p1)
@@ -86,18 +84,19 @@ int _play(int c, int *player, int board)
 		return UNKNOWN_VALUE;
 
 	playedcase = 1 << c;
-	if ((playedcase | board) == board)
+	if ((board | playedcase) == board)
 		return ALREADY_USED_CASE;
 
 	*player = *player | playedcase;
+
+	if (~(board | playedcase) == (~0 << 9))
+		return NO_WINNER;
 
 	int i;
 	for (i = 0; i < 8 && (winpatterns[i] & *player) != winpatterns[i]; i++);
 
 	if (i < 8)
 		return WINNING_PLAY;
-	else if (~(board | playedcase) == (~0 << 9))
-		return NO_WINNER;
 
 	return CONTINUE;
 }
