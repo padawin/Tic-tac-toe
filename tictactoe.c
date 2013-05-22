@@ -52,7 +52,7 @@ int main()
 		if (result == UNKNOWN_VALUE || result == ALREADY_USED_CASE)
 			continue;
 		else if (result == NO_WINNER) {
-			printf("No winner");
+			printf("Draw\n");
 			return result;
 		}
 		else if (result == WINNING_PLAY)
