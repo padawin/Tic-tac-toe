@@ -43,6 +43,9 @@ int main()
 	char c;
 
 	do {
+		display(p1, p2);
+
+		printf("Your turn: ");
 		scanf("%c", &c);
 		if (c < '0' || c > '8')
 			continue;
@@ -62,8 +65,6 @@ int main()
 		tmp = turn;
 		turn = other;
 		other = tmp;
-
-		display(p1, p2);
 
 	} while (winner == NULL && (c >= '0' || c <= '8'));
 
