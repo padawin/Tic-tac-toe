@@ -35,3 +35,7 @@ layout:
 ..O
 
 ```
+
+## TODO
+
+If more than one char is typed, ignore them.
