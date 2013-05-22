@@ -96,7 +96,7 @@ int _play(int c, int *player, int board)
 
 	if (i < 8)
 		return WINNING_PLAY;
-	else if (~board == 0)
+	else if (~(board | playedcase) == (~0 << 9))
 		return NO_WINNER;
 
 	return CONTINUE;
