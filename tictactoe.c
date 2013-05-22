@@ -48,6 +48,7 @@ int main()
 
 		c = c - '0';
 		result = _play(c, turn, *turn | *other);
+		display(p1, p2);
 
 		if (result == UNKNOWN_VALUE || result == ALREADY_USED_CASE)
 			continue;
@@ -61,9 +62,6 @@ int main()
 		tmp = turn;
 		turn = other;
 		other = tmp;
-
-		display(p1, p2);
-
 	} while (winner == NULL && (c >= '0' || c <= '8'));
 
 	if (*winner == p1)
