@@ -15,23 +15,22 @@ Grid layout:
 #define CONTINUE 0
 #define WINNING_PLAY 1
 
-int _play(int c, int *player, int board, int winpatterns[]);
+int _play(int c, int *player, int board);
 void display(int p1, int p2);
 
+int winpatterns[8] = {
+	0b000000111,
+	0b000111000,
+	0b111000000,
+	0b001001001,
+	0b010010010,
+	0b100100100,
+	0b100010001,
+	0b001010100
+};
 
 int main()
 {
-	int winpatterns[8] = {
-		0b000000111,
-		0b000111000,
-		0b111000000,
-		0b001001001,
-		0b010010010,
-		0b100100100,
-		0b100010001,
-		0b001010100
-	};
-
 	int p1=0b000000000;
 	int p2=0b000000000;
 	int result;
@@ -48,7 +47,7 @@ int main()
 			continue;
 
 		c = c - '0';
-		result = _play(c, turn, *turn | *other, winpatterns);
+		result = _play(c, turn, *turn | *other);
 
 		if (result == UNKNOWN_VALUE || result == ALREADY_USED_CASE)
 			continue;
@@ -78,9 +77,10 @@ int main()
 /**
  * Game engine
  */
-int _play(int c, int *player, int board, int winpatterns[])
+int _play(int c, int *player, int board)
 {
 	int playedcase;
+	extern int winpatterns[8];
 
 	if (c < 0 || c > 8)
 		return UNKNOWN_VALUE;
