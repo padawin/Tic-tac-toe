@@ -92,9 +92,9 @@ int _play(int c, int *player, int board, int winpatterns[])
 	*player = *player | playedcase;
 
 	int i;
-	for (i = 0; i < 9 && (winpatterns[i] & *player) != winpatterns[i]; i++);
+	for (i = 0; i < 8 && (winpatterns[i] & *player) != winpatterns[i]; i++);
 
-	if (i < 9)
+	if (i < 8)
 		return WINNING_PLAY;
 	else if (~board == 0)
 		return NO_WINNER;
