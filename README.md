@@ -19,6 +19,22 @@ layout:
 543
 210
 ```
+## Current display:
+```
+4
+...
+.X.
+...
+0
+...
+.X.
+..O
+7
+.X.
+.X.
+..O
+
+```
 
 ## Known error
 
