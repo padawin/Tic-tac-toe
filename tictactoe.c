@@ -89,13 +89,14 @@ int _play(int c, int *player, int board)
 
 	*player = *player | playedcase;
 
+	if (~(board | playedcase) == (~0 << 9))
+		return NO_WINNER;
+
 	int i;
 	for (i = 0; i < 8 && (winpatterns[i] & *player) != winpatterns[i]; i++);
 
 	if (i < 8)
 		return WINNING_PLAY;
-	else if (~(board | playedcase) == (~0 << 9))
-		return NO_WINNER;
 
 	return CONTINUE;
 }
