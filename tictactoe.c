@@ -84,7 +84,7 @@ int _play(int c, int *player, int board)
 		return UNKNOWN_VALUE;
 
 	playedcase = 1 << c;
-	if ((playedcase | board) == board)
+	if ((board | playedcase) == board)
 		return ALREADY_USED_CASE;
 
 	*player = *player | playedcase;
