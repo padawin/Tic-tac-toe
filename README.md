@@ -35,7 +35,3 @@ layout:
 ..O
 
 ```
-
-## Known error
-
-On some system, the winner is set in the first turn.
