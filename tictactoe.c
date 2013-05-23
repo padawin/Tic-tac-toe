@@ -85,7 +85,7 @@ int main()
 	// @TODO Simplify this
 	if (*winner == p1)
 		printf("Winner is p1\n");
-	else if(*winner == p2)
+	else if (*winner == p2)
 		printf("Winner is p2\n");
 
 	return 1;
@@ -160,4 +160,5 @@ void display(int p1, int p2)
 			printf("\n");
 		disp = disp >> 1;
 	}
+	printf("\n");
 }
