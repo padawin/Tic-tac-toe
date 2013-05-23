@@ -33,8 +33,8 @@ int winpatterns[] = {
 
 int main()
 {
-	// Each player is a 9-bytes integer representing the cases the played
-	// If a byte is at 1, it means the corresponding case was played by the
+	// Each player is a 9-bytes integer representing the played cells
+	// If a byte is at 1, it means the corresponding cell was played by the
 	// Player
 	// A same byte cannot be set to 1 for both players
 	int p1=0b000000000;
@@ -109,15 +109,15 @@ int _play(int c, int *player, int board)
 	if (c < 0 || c > 8)
 		return UNKNOWN_VALUE;
 
-	// Initialize the played case corresponding byte in an integer
-	// Example: If the played case is the 4 (middle column, middle line),
-	// played case will be equal to 0b000010000
+	// Initialize the played cell corresponding byte in an integer
+	// Example: If the played cell is the 4 (middle column, middle line),
+	// played cell will be equal to 0b000010000
 	playedcase = 1 << c;
-	// The played case must not already be in the board
+	// The played cell must not already be in the board
 	if ((board | playedcase) == board)
 		return ALREADY_USED_CASE;
 
-	// Add the played case to the player
+	// Add the played cell to the player
 	*player = *player | playedcase;
 
 	// Checks if the board if full
@@ -155,7 +155,7 @@ void display(int p1, int p2)
 		else
 			printf(".");
 
-		// Every 3 cases, display a carriage return
+		// Every 3 cell, display a carriage return
 		if ((disp & 0b001001001) == disp)
 			printf("\n");
 		disp = disp >> 1;
