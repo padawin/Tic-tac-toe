@@ -43,8 +43,6 @@ int main()
 
 	do {
 		scanf("%c", &c);
-		if (c < '0' || c > '8')
-			continue;
 
 		c = c - '0';
 		result = _play(c, turn, *turn | *other);
@@ -62,7 +60,7 @@ int main()
 		tmp = turn;
 		turn = other;
 		other = tmp;
-	} while (winner == NULL && (c >= '0' || c <= '8'));
+	} while (winner == NULL);
 
 	if (*winner == p1)
 		printf("Winner is p1\n");
