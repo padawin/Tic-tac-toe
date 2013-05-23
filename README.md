@@ -25,14 +25,38 @@ layout:
 ...
 .X.
 ...
-0
+
+8
+O..
+.X.
 ...
+
+1
+O..
 .X.
-..O
+.X.
+
 7
+OO.
 .X.
 .X.
-..O
+
+2
+OO.
+.X.
+XX.
+
+0
+OO.
+.X.
+XXO
+
+6
+OOX
+.X.
+XXO
+
+Winner is p1
 
 ```
 
