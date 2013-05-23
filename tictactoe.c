@@ -11,9 +11,9 @@ Grid layout:
 
 #define UNKNOWN_VALUE -1
 #define ALREADY_USED_CASE -2
-#define NO_WINNER -3
 #define CONTINUE 0
 #define WINNING_PLAY 1
+#define NO_WINNER 2
 
 int _play(int c, int *player, int board);
 void display(int p1, int p2);
@@ -46,7 +46,8 @@ int main()
 
 		c = c - '0';
 		result = _play(c, turn, *turn | *other);
-		display(p1, p2);
+		if (result >= 0)
+			display(p1, p2);
 
 		if (result == UNKNOWN_VALUE || result == ALREADY_USED_CASE)
 			continue;
