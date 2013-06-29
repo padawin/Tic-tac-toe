@@ -127,9 +127,10 @@ int _play(int c, int *player, int board)
 	// Checks if player matches a winpatterns to know if the player just won
 	// the game.
 	int i;
-	for (i = 0; i < sizeof(winpatterns)/sizeof(int) && (winpatterns[i] & *player) != winpatterns[i]; i++);
+	int size = sizeof(winpatterns)/sizeof(int);
+	for (i = 0; i < size && (winpatterns[i] & *player) != winpatterns[i]; i++);
 
-	if (i < sizeof(winpatterns)/sizeof(int))
+	if (i < size)
 		return WINNING_PLAY;
 
 	return CONTINUE;
