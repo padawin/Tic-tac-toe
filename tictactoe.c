@@ -3,9 +3,11 @@
 /*
 Grid layout:
 
-876
-543
-210
+8|7|6
+-+-+-
+5|4|3
+-+-+-
+2|1|0
 
 */
 
@@ -154,11 +156,16 @@ void display(int p1, int p2)
 		else if ((disp & p2) == disp)
 			printf("O");
 		else
-			printf(".");
+			printf(" ");
 
 		// Every 3 cell, display a carriage return
-		if ((disp & 0b001001001) == disp)
+		if ((disp & 0b001001001) == disp) {
 			printf("\n");
+			if ((disp & 0b001001000) == disp)
+				printf("-+-+-\n");
+		}
+		else
+			printf("|");
 		disp = disp >> 1;
 	}
 	printf("\n");
